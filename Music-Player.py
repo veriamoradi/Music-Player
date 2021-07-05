@@ -43,7 +43,7 @@ def play():
     pygame.mixer.music.load(listb.get(ACTIVE))
     pygame.mixer.music.play()
     label.config(text=listb.get(ACTIVE))
-    pygame.mixer.music.set_volume(volume.get())
+    pygame.mixer.music.set_volume(volume.get()/100)
 
 
 def pause():
@@ -59,13 +59,13 @@ def stop():
 
 
 def chainge_velume(a):
-    a = volume.get()
-    a = a/100
-    pygame.mixer.music.set_volume(a)
+    # a = volume.get()
+    # a = a/100
+    pygame.mixer.music.set_volume(volume.get()/100)
 
 
 volume = Scale(win, orient=HORIZONTAL, fg='black', command=chainge_velume, cursor='hand2')
-volume.set(100)
+volume.set(50)
 btnlod = Button(win, text='وارد کردن پوشه', command=lod, height=2, cursor='hand2')
 btnlod.pack(fill='x')
 listb.pack(fill='x')
